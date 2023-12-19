@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: country-lookup-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: country-lookup
+  template:
+    metadata:
+      labels:
+        app: country-lookup
+    spec:
+      containers:
+      - name: country-lookup-container
+        image: skforever99/sony-12:latest
+        ports:
+        - containerPort: 5000
